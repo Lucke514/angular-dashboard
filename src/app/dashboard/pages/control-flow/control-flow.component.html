@@ -1,1 +1,63 @@
-<p>control-flow works!</p>
+<!-- <h1 class="text-3xl mb-5 font-bold">Control Flow</h1> -->
+<app-title title="Control Flow" />
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div class="bg-white rounded p-10">
+    <h2 class="text-2xl font-bold mb-5">If : {{showContent()}}</h2>
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      (click)="toggleContent()">
+      Toggle Content
+    </button>
+
+    @if (showContent()) {
+      <p class="mt-5">Content is visible</p>
+    } @else {
+      <p class="mt-5">Content is hidden</p>
+    }
+  </div>
+
+  <div class="bg-white rounded p-10">
+    <h2 class="text-2xl font-bold mb-5">Calificacion : {{grade()}} </h2>
+
+    @switch (grade()) {
+      @case ('A') {
+        <h2>Arriba de 90</h2>
+      }
+      @case ('B') {
+        <h2>Arriba de 80</h2>
+      }
+      @default {
+        <h2>Reprobado</h2>
+      }
+    }
+  </div>
+
+  <div class="bg-white rounded p-10">
+    <ul>
+        @for (item of frameworks(); track frameworks;
+        let i = $index, last = $last, first = $first, odd = $odd, even = $even, count = $count) {
+          <li
+            [class]="{
+              'bg-red-100':even && !first && !last,
+              'bg-green-100':odd && !first && !last,
+              'bg-blue-100':first,
+              'bg-yellow-100':last
+              }"
+
+          >{{i + 1 }} / {{count}} -{{item}}</li>
+        }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded p-10">
+    <ul>
+      @for (item of frameworks2(); track $index) {
+        <li>{{item}}</li>
+      } @empty {
+        <li>No frameworks</li>
+      }
+    </ul>
+  </div>
+</section>
