@@ -1,1 +1,90 @@
-<p>defer-options works!</p>
+<app-title title="Defer Triggers"></app-title>
+
+<section>
+  <h1 class="text-xl">Interacciones</h1>
+  <hr class="my-2">
+
+  @defer (on interaction) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On interaction</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      Click en el div
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="my-2">
+
+  <button #btnInteraction class="bg-blue-500 p-2 hover:bg-blue-700 rounded-md text-white m-2">
+    click me
+  </button>
+
+  @defer (on interaction(btnInteraction)) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On interaction</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      PlaceHolder div
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on hover) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On hover</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      PlaceHolder div
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on immediate ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500 h-20">
+      <span>On immediate</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      PlaceHolder div
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on timer(2000) ) {
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span>On timer(200) </span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      PlaceHolder div
+    </div>
+  }
+</section>
+
+<section>
+  <hr class="my-2">
+
+  @defer (on hover; prefetch on idle) {
+    <app-heavy-loaders-fast cssClass="bg-green-500 h-20">
+      <span>On hover and prefetch on idle</span>
+    </app-heavy-loaders-fast>
+  } @placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      PlaceHolder div
+    </div>
+  }
+</section>
