@@ -12,5 +12,4 @@ import { TitleComponent } from '@shared/title/title.component';
 })
 export default class UsersComponent {
   public usersService = inject(UsersService);
-
 }
